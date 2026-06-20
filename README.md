@@ -40,13 +40,13 @@ As an end user, navigate to the osTicket portal at <code>http://localhost/osTick
 
 <h4>Stage 2: Assignment and Communication</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Assignment - Online Banking Down"/>
+<img src="https://i.imgur.com/Ri5F0Hl.png height="80%" width="80%" alt="Ticket Assignment - Online Banking Down"/>
 </p>
 <p>
 As agent <strong>John</strong>, observe the ticket's default properties — Priority, Department, SLA, and Assigned To. Then set the following properties on the ticket:<br /><br />
 - <strong>SLA:</strong> Sev-A (1 hour, 24/7)<br />
 - <strong>Department:</strong> Online Banking (SysAdmins)<br /><br />
-After saving, attempt to view or change the ticket again as John. Because SysAdmins is a top-level department and John does not have access, the ticket is <strong>no longer visible or editable</strong> from his agent panel.
+After saving, attempt to view or change the ticket again as John. Because SysAdmins is a top-level department and John does not have access to change anything because its view pnly, the ticket is <strong></strong> from his agent panel.
 </p>
 <br />
 
