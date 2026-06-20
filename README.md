@@ -32,7 +32,7 @@ This tutorial outlines the lifecycle of a ticket from intake to resolution withi
 
 <h4>Stage 1: Intake</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - Online Banking Down"/>
+<img src="https://i.imgur.com/wbqlkDs.png" height="80%" width="80%" alt="Ticket Intake - Online Banking Down"/>
 </p>
 <p>
 End user <strong>Karen</strong> navigates to the osTicket end-user portal at <code>http://localhost/osTicket</code> and submits a new ticket. She selects the Help Topic <strong>"Business Critical Outage"</strong> and describes the issue: the entire online banking system is down and customers are unable to access their accounts. This ticket is flagged as high urgency due to its broad impact on business operations.
