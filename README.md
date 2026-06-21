@@ -23,61 +23,88 @@ This tutorial outlines the lifecycle of a ticket from intake to resolution withi
 - Working the Issue
 - Resolution
 
-<h2>Lifecycle Stages</h2>
+<br />
 
 ---
 
-<h3>Scenario 1: Entire Mobile/Online Banking System Is Down (Sev-A)</h3>
+<h3>📋 Pre‑Lab Setup (Admin Panel)</h3>
+
+Before creating tickets, perform the following administrative tasks:
+
+1. Navigate to the **Admin Panel** → **Departments**.
+2. **Delete** the <strong>Maintenance</strong> department (do not archive it).
+3. Locate the <strong>SysAdmins</strong> department and change its setting to <strong>"Top Level Department"</strong>. This restricts visibility so that only agents explicitly granted access can view tickets assigned to this department.
+
+> **Access URLs for this lab:**  
+> - **Admin / Agent Login:** `http://localhost/osTicket/scp/login.php`  
+> - **End‑User Portal:** `http://localhost/osTicket`
+
+---
+
+<h3>Scenario 1: Entire Mobile/Online Banking System Is Down (Sev‑A)</h3>
 
 <h4>Stage 1: Intake</h4>
 <p>
 <img src="https://i.imgur.com/wbqlkDs.png" height="80%" width="80%" alt="Ticket Intake - Online Banking Down"/>
 </p>
 <p>
-As an end user, navigate to the osTicket portal at <code>http://localhost/osTicket</code> and submit a new ticket with the issue: <strong>"Entire mobile/online banking system is down."</strong> This represents a critical outage affecting all customers. Log out and log back in as Help Desk Agent <strong>John</strong> at <code>http://localhost/osTicket/scp/login.php</code> to begin working the ticket.
+As an end user, navigate to the osTicket portal at <code>http://localhost/osTicket</code> and submit a new ticket with the issue: <strong>"Entire mobile/online banking system is down."</strong> This represents a critical outage affecting all customers.
 </p>
 <br />
 
-<h4>Stage 2: Assignment and Communication</h4>
+<h4>Stage 2: Assignment & Initial Triage (Permission Block)</h4>
 <p>
-<img src="https://i.imgur.com/Ri5F0Hl.png height="80%" width="80%" alt="Ticket Assignment - Online Banking Down"/>
+<img src="https://i.imgur.com/Ri5F0Hl.png" height="80%" width="80%" alt="Ticket Assignment - Online Banking Down"/>
 </p>
 <p>
-As agent <strong>John</strong>, observe the ticket's default properties — Priority, Department, SLA, and Assigned To. Then set the following properties on the ticket:<br /><br />
+Log in as Help Desk Agent <strong>John</strong> at <code>http://localhost/osTicket/scp/login.php</code>. Open the new ticket and observe its default properties:<br /><br />
+- <strong>Priority:</strong> Normal<br />
+- <strong>Department:</strong> Support<br />
+- <strong>SLA:</strong> Default SLA<br />
+- <strong>Assigned To:</strong> Unassigned<br /><br />
+John attempts to update the ticket with the correct critical settings:<br /><br />
 - <strong>SLA:</strong> Sev-A (1 hour, 24/7)<br />
 - <strong>Department:</strong> Online Banking (SysAdmins)<br /><br />
-After saving, attempt to view or change the ticket again as John. Because SysAdmins is a top-level department and John does not have access to change anything because its view pnly, the ticket is <strong></strong> from his agent panel.
+After saving, John logs out and logs back in. Because SysAdmins is a Top‑Level Department and John only has default view‑only access, the ticket is now completely hidden from his agent panel. He cannot see or modify any tickets assigned to that department.
 </p>
 <br />
 
-<h4>Stage 3: Working the Issue</h4>
+<h4>Stage 3: Permission Grant & Advanced Triage</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Working the Issue - Online Banking Down"/>
+<img src="https://i.imgur.com/KdQB8Xz.png" height="80%" width="80%" alt="Working the Issue - Online Banking Down"/>
 </p>
 <p>
-Log in as <strong>Jane</strong> (SysAdmins department). Jane has full access to the escalated ticket and works it to completion. She investigates the banking system outage, documents all troubleshooting steps in the ticket thread, and communicates updates to the end user throughout the process. The ticket status remains <strong>"Open"</strong> while the investigation is active.
+To resolve the permission block, an <strong>Admin</strong> logs into the Admin Panel and navigates to <strong>Agents → John Doe → Access</strong>, granting John <strong>"All Access"</strong> permissions. John logs out and back in.<br /><br />
+Now able to view the ticket, John immediately:<br />
+- Updates the <strong>Priority</strong> to <strong>Emergency</strong>.<br />
+- Calls the end user (Karen) to confirm that all teller systems are indeed down.<br />
+- Sets the <strong>SLA Plan</strong> to <strong>Sev-A</strong>.<br />
+- Changes the <strong>Help Topic</strong> to <strong>Business Critical Outage</strong> with an internal note: <em>"Entire business system is offline."</em><br />
+- Posts a public reply escalating the issue to the SysAdmin department after completing his triage.<br />
+- Assigns the ticket to <strong>Jane Doe</strong> and assigns the department to <strong>SysAdmins</strong>.<br /><br />
+logs out as john.
 </p>
 <br />
 
-<h4>Stage 4: Resolution</h4>
+<h4>Stage 4: Resolution (as Jane)</h4>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - Online Banking Down"/>
 </p>
 <p>
-Once the banking system is restored, Jane updates the ticket with a resolution summary and changes the ticket status to <strong>"Resolved"</strong>. The end user is notified that the issue has been fixed and service has been restored. The ticket is then closed and archived for future reference.
+log  in as jane and works the ticket to completion. She investigates and discovers that the online banking system backend server was accidentally restarted during business hours due to a configuration issue. Jane posts a reply stating that she will check the settings and attempt a restart. After successfully restarting the server, she posts another reply confirming that online banking appears to be back up. Jane contacts Karen directly to confirm full functionality. Once confirmed, Jane updates the ticket status to <strong>"Resolved"</strong>, notifies the end user, and closes the ticket for archival.
 </p>
 <br />
 
 ---
 
-<h3>Scenario 2: Adobe Software Not Working for Accounting Department (Sev-B)</h3>
+<h3>Scenario 2: Adobe Software Not Working for Accounting Department (Sev‑B)</h3>
 
 <h4>Stage 1: Intake</h4>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - Adobe Software Issue"/>
 </p>
 <p>
-As an end user, navigate to <code>http://localhost/osTicket</code> and submit a new ticket with the issue: <strong>"Accounting department needs Adobe upgrade — broken."</strong> This affects an entire department and must be treated as a high-priority request. Log back in as agent <strong>John</strong> to begin working the ticket.
+As an end user, submit a new ticket with the issue: <strong>"Accounting department needs Adobe upgrade — broken."</strong> This affects an entire department and requires prompt attention.
 </p>
 <br />
 
@@ -86,10 +113,10 @@ As an end user, navigate to <code>http://localhost/osTicket</code> and submit a 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Assignment - Adobe Software Issue"/>
 </p>
 <p>
-As agent <strong>John</strong>, observe the ticket's default properties — Priority, Department, SLA, and Assigned To. Then set the following properties:<br /><br />
+Log in as agent <strong>John</strong>. Observe the ticket's default properties, then set the following:<br /><br />
 - <strong>SLA:</strong> Sev-B (4 hours, 24/7)<br />
 - <strong>Department:</strong> Support<br /><br />
-John acknowledges the issue and notifies the end user that it is being actively worked on.
+John acknowledges the issue and notifies the end user that work has begun.
 </p>
 <br />
 
@@ -98,7 +125,7 @@ John acknowledges the issue and notifies the end user that it is being actively 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Working the Issue - Adobe Software Issue"/>
 </p>
 <p>
-John troubleshoots the Adobe software issue by checking license status, reinstalling the application on affected machines, and verifying network access to Adobe's licensing servers. All steps are documented in the ticket thread. John communicates updates to the end user throughout the process to keep the accounting department informed.
+John troubleshoots by checking license status, reinstalling the application, and verifying network access to Adobe's licensing servers. All steps are documented in the ticket thread, and John posts regular updates to the accounting department.
 </p>
 <br />
 
@@ -107,49 +134,56 @@ John troubleshoots the Adobe software issue by checking license status, reinstal
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - Adobe Software Issue"/>
 </p>
 <p>
-After resolving the licensing conflict and restoring Adobe functionality across all accounting machines, John updates the ticket with a full resolution summary. The ticket status is changed to <strong>"Resolved"</strong> and the end user is notified. The ticket is closed with documentation of the root cause and fix for future reference.
+After resolving the licensing conflict and restoring Adobe functionality, John updates the ticket with a full resolution summary, changes the status to <strong>"Resolved"</strong>, and closes the ticket.
 </p>
 <br />
 
 ---
 
-<h3>Scenario 3: Password Reset Request (Sev-C)</h3>
+<h3>Scenario 3: CFO’s Laptop Will No Longer Turn On (Sev‑B)</h3>
 
 <h4>Stage 1: Intake</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - Password Reset"/>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - CFO Laptop"/>
 </p>
 <p>
-As an end user, navigate to <code>http://localhost/osTicket</code> and submit a new ticket requesting a password reset. Select the Help Topic <strong>"Password Reset"</strong> and provide the username and department information. This is a routine, low-priority request that does not impact business operations. Log back in as agent <strong>John</strong> to work the ticket.
+As an end user, submit a new ticket with the issue: <strong>"CFO’s laptop will no longer turn on."</strong> This is a high‑visibility executive request that must be prioritized.
 </p>
 <br />
 
 <h4>Stage 2: Assignment and Communication</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Assignment - Password Reset"/>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Assignment - CFO Laptop"/>
 </p>
 <p>
-As agent <strong>John</strong>, observe the ticket's default properties — Priority, Department, SLA, and Assigned To. Then set the following properties:<br /><br />
-- <strong>SLA:</strong> Sev-C (8 hours, Business Hours)<br />
+Log in as agent <strong>John</strong>. Observe the default properties, then set:<br /><br />
+- <strong>SLA:</strong> Sev-B (4 hours, 24/7)<br />
 - <strong>Department:</strong> Support<br /><br />
-John replies to the end user confirming receipt of the request and lets them know the reset will be completed shortly.
+John replies to confirm receipt and assures the CFO that a technician will investigate immediately.
 </p>
 <br />
 
 <h4>Stage 3: Working the Issue</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Working the Issue - Password Reset"/>
+<img src="https://i.imgur.com/KdQB8Xz.png" height="80%" width="80%" alt="Working the Issue - CFO Laptop"/>
 </p>
 <p>
-John verifies the end user's identity using standard procedures and resets the password through the appropriate system. A temporary password is generated and securely communicated with instructions to change it upon next login. The action is logged in the ticket thread.
+John checks the power adapter, battery, and motherboard. He swaps the laptop with a loaner device to restore the CFO’s productivity while the original unit is diagnosed. All actions are logged in the ticket thread.
 </p>
 <br />
 
 <h4>Stage 4: Resolution</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - Password Reset"/>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - CFO Laptop"/>
 </p>
 <p>
-The end user confirms they have successfully logged in with the new credentials. John updates the ticket status to <strong>"Resolved"</strong> and closes the ticket. The full interaction is documented, including identity verification steps and the resolution outcome, ensuring a complete audit trail for compliance purposes.
+The laptop is repaired (or replaced), and the CFO confirms it is fully operational. John changes the status to <strong>"Resolved"</strong>, documents the fix, and closes the ticket.
+</p>
+<br />
+
+---
+
+<p>
+<strong>Technical Skill Pillar:</strong> Mastering osTicket's permission model, SLA management, and ticketing workflows is a foundational skill for any IT support professional. The more you practice, the more natural these processes become. Good luck!
 </p>
 <br />
