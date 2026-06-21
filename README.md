@@ -82,7 +82,7 @@ Now able to view the ticket, John immediately:<br />
 - Changes the <strong>Help Topic</strong> to <strong>Business Critical Outage</strong> with an internal note: <em>"Entire business system is offline."</em><br />
 - Posts a public reply escalating the issue to the SysAdmin department after completing his triage.<br />
 - Assigns the ticket to <strong>Jane Doe</strong> and assigns the department to <strong>SysAdmins</strong>.<br /><br />
-logs out as john.
+John logs out.
 </p>
 <br />
 
@@ -91,20 +91,20 @@ logs out as john.
 <img src="https://i.imgur.com/beMfRBY.png" height="80%" width="80%" alt="Resolution - Online Banking Down"/>
 </p>
 <p>
-log  in as jane and works the ticket to completion. She investigates and discovers that the online banking system backend server was accidentally restarted during business hours due to a configuration issue. Jane posts a reply stating that she will check the settings and attempt a restart. After successfully restarting the server, she posts another reply confirming that online banking appears to be back up. Jane contacts Karen directly to confirm full functionality. Once confirmed, Jane updates the ticket status to <strong>"Resolved"</strong>, notifies the end user, and closes the ticket for archival.
+Log in as <strong>Jane</strong> and work the ticket to completion. She investigates and discovers that the online banking system backend server was accidentally restarted during business hours due to a configuration issue. Jane posts a reply stating that she will check the settings and attempt a restart. After successfully restarting the server, she posts another reply confirming that online banking appears to be back up. Jane contacts Karen directly to confirm full functionality. Once confirmed, Jane updates the ticket status to <strong>"Resolved"</strong>, notifies the end user, and closes the ticket for archival.
 </p>
 <br />
 
 ---
 
-<h3>Scenario 2: Adobe Software Not Working for Accounting Department (Sev‑B)</h3>
+<h3>Scenario 2: Adobe Reader Not Working for Accounting Department (Sev‑B)</h3>
 
 <h4>Stage 1: Intake</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - Adobe Software Issue"/>
+<img src="https://i.imgur.com/Dp0HNEV.png" height="80%" width="80%" alt="Ticket Intake - Adobe Software Issue"/>
 </p>
 <p>
-As an end user, submit a new ticket with the issue: <strong>"Accounting department needs Adobe upgrade — broken."</strong> This affects an entire department and requires prompt attention.
+As an end user, submit a new ticket with the issue: <strong>"Adobe Reader not working"</strong>. Select <strong>Help Topic</strong> as <strong>Personal Computer Issue</strong> with the issue summary: <em>"Some people in the accounting department can't use Adobe Reader."</em>
 </p>
 <br />
 
@@ -114,8 +114,10 @@ As an end user, submit a new ticket with the issue: <strong>"Accounting departme
 </p>
 <p>
 Log in as agent <strong>John</strong>. Observe the ticket's default properties, then set the following:<br /><br />
-- <strong>SLA:</strong> Sev-B (4 hours, 24/7)<br />
+- <strong>Priority:</strong> High<br />
+- <strong>SLA:</strong> Sev-B (4 hours, 24/7) — set to Sev-B since there is an active audit where they need Adobe Reader.<br />
 - <strong>Department:</strong> Support<br /><br />
+John posts a reply: <em>"Called Ken to get more details on the incident. 10 out of 12 people cannot even open Adobe Reader (very important because internal audit is happening). When double‑clicking the icon, it just hangs and nothing happens. Going to investigate what has changed recently."</em><br /><br />
 John acknowledges the issue and notifies the end user that work has begun.
 </p>
 <br />
@@ -125,7 +127,7 @@ John acknowledges the issue and notifies the end user that work has begun.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Working the Issue - Adobe Software Issue"/>
 </p>
 <p>
-John troubleshoots by checking license status, reinstalling the application, and verifying network access to Adobe's licensing servers. All steps are documented in the ticket thread, and John posts regular updates to the accounting department.
+John contacts <strong>Josh</strong> from the Desktop Admins group. It turns out the issue is likely related to a new Adobe Reader package that was pushed out last night. The solution is to either wait 1 hour for the fix to be deployed automatically, or end users can manually install the new packages from the Software Catalog. John documents all troubleshooting steps in the ticket thread and posts regular updates to the accounting department.
 </p>
 <br />
 
@@ -134,20 +136,20 @@ John troubleshoots by checking license status, reinstalling the application, and
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - Adobe Software Issue"/>
 </p>
 <p>
-After resolving the licensing conflict and restoring Adobe functionality, John updates the ticket with a full resolution summary, changes the status to <strong>"Resolved"</strong>, and closes the ticket.
+Ken verifies that the installation from the Software Catalog is working and confirms everyone is up and running. John updates the ticket with a full resolution summary, changes the status to <strong>"Resolved"</strong>, and closes the ticket.
 </p>
 <br />
 
 ---
 
-<h3>Scenario 3: CFO’s Laptop Will No Longer Turn On (Sev‑B)</h3>
+<h3>Scenario 3: CFO's Laptop Will No Longer Turn On (Sev‑B)</h3>
 
 <h4>Stage 1: Intake</h4>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Ticket Intake - CFO Laptop"/>
 </p>
 <p>
-As an end user, submit a new ticket with the issue: <strong>"CFO’s laptop will no longer turn on."</strong> This is a high‑visibility executive request that must be prioritized.
+As an end user, submit a new ticket with the issue: <strong>"CFO's laptop will no longer turn on."</strong> This is a high‑visibility executive request that must be prioritized.
 </p>
 <br />
 
@@ -168,7 +170,7 @@ John replies to confirm receipt and assures the CFO that a technician will inves
 <img src="https://i.imgur.com/KdQB8Xz.png" height="80%" width="80%" alt="Working the Issue - CFO Laptop"/>
 </p>
 <p>
-John checks the power adapter, battery, and motherboard. He swaps the laptop with a loaner device to restore the CFO’s productivity while the original unit is diagnosed. All actions are logged in the ticket thread.
+John checks the power adapter, battery, and motherboard. He swaps the laptop with a loaner device to restore the CFO's productivity while the original unit is diagnosed. All actions are logged in the ticket thread.
 </p>
 <br />
 
@@ -178,12 +180,5 @@ John checks the power adapter, battery, and motherboard. He swaps the laptop wit
 </p>
 <p>
 The laptop is repaired (or replaced), and the CFO confirms it is fully operational. John changes the status to <strong>"Resolved"</strong>, documents the fix, and closes the ticket.
-</p>
-<br />
-
----
-
-<p>
-<strong>Technical Skill Pillar:</strong> Mastering osTicket's permission model, SLA management, and ticketing workflows is a foundational skill for any IT support professional. The more you practice, the more natural these processes become. Good luck!
 </p>
 <br />
