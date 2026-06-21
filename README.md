@@ -88,7 +88,7 @@ logs out as john.
 
 <h4>Stage 4: Resolution (as Jane)</h4>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Resolution - Online Banking Down"/>
+<img src="https://i.imgur.com/beMfRBY.png" height="80%" width="80%" alt="Resolution - Online Banking Down"/>
 </p>
 <p>
 log  in as jane and works the ticket to completion. She investigates and discovers that the online banking system backend server was accidentally restarted during business hours due to a configuration issue. Jane posts a reply stating that she will check the settings and attempt a restart. After successfully restarting the server, she posts another reply confirming that online banking appears to be back up. Jane contacts Karen directly to confirm full functionality. Once confirmed, Jane updates the ticket status to <strong>"Resolved"</strong>, notifies the end user, and closes the ticket for archival.
